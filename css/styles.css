@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    }
+body{
+    max-width: translateY(100%);
+    margin: auto;
+}
+.navbar{
+    max-width: translateY(100%);
+    border: 2px solid #a9a9
+}
+/* La feuille styles du  logo*/
+.img-fluid{
+    max-width: 100%;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+}
+
+/* La feuille de style des popup pour la connexion*/
+/*Trigger Button*/
+.login-trigger {
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to bottom right, #B05574, #F87E7B);
+    padding: 15px 30px;
+    border-radius: 30px;
+    position: relative;
+    top: 50%;
+  }
+.border-pop{
+    border: 2px solid #7bc6f8;
+    border-radius: 10px;
+}
+
+/* Les questions*/
+.textarea-question{
+    height:200px;
+}
+.code-questions{
+    background-color: #eee;
+    border-left: 5px solid #999;
+    display: block;
+    padding: 20px;
+}
+
+/* L'avatar de profil*/
+.profile-avatar{
+    width: 150;
+    height: 150px;
+    border: 2px solid #445521;
+    border-radius:50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:50px
+}
+
+.visite-profile{
+    width: 500px;
+    border: 2px solid #7bc6f8;
+    border-radius: 10px ;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.visite-profile li{
+    list-style-type: none;
+}
+
+/* footer*/
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+    color: #eee;
+    background-color: #bbbbbb;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+/* rapper*/
+.wrapper{
+text-align: center;
+margin-bottom: 20px;
+}
+.title-categorie {
+    display: inline-flex;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.title-categorie a{
+    display: inline;
+    color: #0f0505;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border: 2px solid rgb(4, 80, 90);
+  }
+.title-categorie a:hover{
+    background-color: #12345a;
+    border: 2px solid rgb(173, 236, 245);
+  }
+.forum-title{
+      padding: 15px;
+  }
+.top-title{
+    padding: 15px;
+}
+.recent-title{
+    padding: 15px;
+}
+/* Image de d'article*/
+.image-article{
+    width: 500px ;
+}

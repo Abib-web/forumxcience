@@ -1,0 +1,32 @@
+Options -MultiViews
+Options +FollowSymlinks
+# On autorise de renommer les pages
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# On peut enlever le .php et renommer les pages comme on le souhaite
+#RewriteRule ^([^\.]+)$ $1.php
+
+RewriteRule ^abib$  /forumxcience/xcforum/test.php [L]
+
+# On réécrit notre URL et on met [0-9]+ car on sait que dans $1 on aura que des chiffres
+RewriteRule ^voir_profil/([0-9]+)$ /forumxcience/voir_profil.php?id=$1 [L]
+
+RewriteRule ^forum$ /forumxcience/xcforum/forum [L]
+RewriteRule ^forum/([0-9]+)$ /forumxcience/xcforum/sujet?id=$1 [L]
+RewriteRule ^forum/([0-9]+)/([0-9]+)$ /forumxcience/xcforum/topic?id_forum=$1&id_topic=$2 [L]
+RewriteRule ^forum/creer-mon-topic$ /forumxcience/xcforum/creer_topic [L]
+
+# Pour le blog
+
+RewriteRule ^blog$ /forumxcience/xcblog/blog [L]
+RewriteRule ^blog/creer-mon-article$ /forumxcience/xcblog/creer_article [L]
+RewriteRule ^blog/([0-9]+)$ /forumxcience/xcblog/voir_article?id=$1 [L]
+
+RewriteRule ^([^\.]+)$ $1.php [L]
+ErrorDocument 401 /forumxcience/erreurs/er_400?erreur=401
+ErrorDocument 402 /forumxcience/erreurs/er_400?erreur=402
+ErrorDocument 403 /forumxcience/erreurs/er_400?erreur=403
+ErrorDocument 404 /forumxcience/erreurs/er_400?erreur=404
