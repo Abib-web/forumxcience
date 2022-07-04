@@ -18,7 +18,9 @@
 
     if (isset($_POST['creer-article'])){
       $titre  = (string) htmlentities(trim($titre));
+      $introduction = (string) htmlentities(trim($introduction));
       $contenu = (string) htmlentities(trim($contenu));
+      $contenu1 = (string) htmlentities(trim($contenu1));
       $categorie = (int) htmlentities(trim($categorie));
 
       if(empty($titre)){
@@ -26,10 +28,19 @@
         $er_titre = ("Il faut mettre un titre");
       }
 
+      if(empty($introduction)){
+        $valid = false;
+        $er_introduction = ("Il faut mettre une introduction");
+      }
       if(empty($contenu)){
         $valid = false;
         $er_contenu = ("Il faut mettre un contenu");
       }
+      if(empty($contenu1)){
+        $valid = false;
+        $er_contenu = ("Il faut mettre un contenu");
+      }
+
 
       if(empty($categorie)){
         $valid = false;
@@ -74,9 +85,9 @@
     }
   }
         $date_creation = date('Y-m-d H:i:s');
-        $DB->insert("INSERT INTO blog (id_user, titre, text, date_creation, id_categorie,img_title , img_milieu, img_fin) VALUES
+        $DB->insert("INSERT INTO blog (id_user, titre,introduction, text, text1, date_creation, id_categorie,img_title , img_milieu, img_fin) VALUES
           (?, ?, ?, ?, ?,?,?,?)",
-          array($_SESSION['id'], $titre, $contenu, $date_creation, $categorie, $fichier_1, $fichier_2, $fichier_3));
+          array($_SESSION['id'], $titre, $introduction, $contenu,  $contenu1, $date_creation, $categorie, $fichier_1, $fichier_2, $fichier_3));
 
         header('Location: /forumxcience/xcblog/blog');
         exit;
@@ -153,15 +164,40 @@
                                 value="<?php if(isset($titre)){ echo $titre; }?>">
                         </div>
                         <?php
-                if (isset($er_contenu)){
+                if (isset($er_introduction)){
+                  ?>
+                        <div class="er-msg"><?= $er_introduction ?></div>
+                        <?php
+                  }
+              ?>
+                        <div class="form-group">
+                          <h1 class="btn-info">Introduction </h1>
+                            <textarea class="form-control" rows="3" placeholder="Introduisez votre article"
+                                name="introduction"><?php if(isset($introduction)){ echo $introduction; }?></textarea>
+                        </div>
+                        <?php
+                        if (isset($er_contenu)){
                   ?>
                         <div class="er-msg"><?= $er_contenu ?></div>
                         <?php
                   }
               ?>
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" placeholder="Décrivez votre article"
+                          <h1 class="btn-primary">Text 1 </h1>
+                            <textarea class="form-control" rows="3" placeholder="Décrivez votre article(premier partie)"
                                 name="contenu"><?php if(isset($contenu)){ echo $contenu; }?></textarea>
+                        </div>
+                        <?php
+                        if (isset($er_contenu1)){
+                  ?>
+                        <div class="er-msg"><?= $er_contenu1 ?></div>
+                        <?php
+                  }
+              ?>
+                        <div class="form-group">
+                        <h1 class="btn-secondary">Text 2 </h1>
+                            <textarea class="form-control" rows="3" placeholder="Décrivez votre article(deuxième partie)"
+                                name="contenu1"><?php if(isset($contenu1)){ echo $contenu1; }?></textarea>
                         </div>
                         <div class="form-group">
 

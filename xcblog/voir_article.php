@@ -49,6 +49,26 @@
         }
     }
 }
+function get_string_between($string, $start, $end){
+    $string = ' ' . $string;
+    $ini = strpos($string, $start);
+    if ($ini == 0) return '';
+    $ini += strlen($start);
+    $len = strpos($string, $end, $ini) - $ini;
+    return substr($string, $ini, $len);
+}
+function geText($string){
+    $text = str_replace("```", "", $string);
+    return $text;
+}
+
+$req['text'] = "$".$req['text'];
+$code1_display = get_string_between($req['text'], '```','```');
+$text1_display = get_string_between($req['text'], '$','```');
+
+
+$code2_display = get_string_between($req['text1'], '```','```');
+$text2_display = geText($req['text1']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +77,7 @@
     <base href="/forumxcience/" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Blog : <?= $req['titre'] ?></title>
+    <title><?= $req['titre'] ?></title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
 </head>
@@ -70,13 +90,27 @@
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <a class="btn btn-primary" href="blog" role="button">Retour</a>
                 <div
-                    style="margin-top: 20px; background: white; box-shadow: 0 5px 10px rgba(0, 0, 0, .09); padding: 5px 10px; border-radius: 10px">
-                    <h1 style="color: #666; text-decoration: none; font-size: 28px; text-align:center"><?= $req['titre'] ?></h1>
+                    style="width:800px; margin-top: 20px; background: white; box-shadow: 0 5px 10px rgba(0, 0, 0, .09); padding: 5px 10px; border-radius: 10px">
+                   <!-- <--!h1 style="color: #666; text-decoration: none; font-size: 28px; text-align:center"><?= $req['titre'] ?></h1> -->
                     <div style="border-top: 2px solid #EEE; padding: 15px 0">
-                    <img class="image-article"
-                    src="<?= "/forumxcience/image/article/". $_SESSION['id'] . "/" . $req['img_title']; ?>" width="120" />
-                    <?= nl2br($req['text']); ?>
-<br>
+                    <div class="introduction-part-1" style="display: flex;">
+                        <img class="image-article-title" src="<?= "/forumxcience/image/article/". $_SESSION['id'] . "/" . $req['img_title']; ?>" width="120" />
+                        <div class="introdution"><?= nl2br($req['introduction']); ?></div>
+                    </div>
+                    <br>
+                    <div class="text-1-part" style="display: block;">
+                        <div class="text"><?= nl2br($text1_display); ?></div>
+                        <div><pre><div class="code-questions"><?= $code1_display;?></div> </pre></div>
+                    </div>
+                    <br>
+                    <img class="image-article-texte" src="<?= "/forumxcience/image/article/". $_SESSION['id'] . "/" . $req['img_fin']; ?>" width="120" />
+                    <br>
+                    <br>
+                    <div class="text-2-part" style="display: block;">
+                    <div class="text"><?= nl2br($text2_display); ?></div>
+                        <div><pre><div class="code-questions"><?= $code2_display; ?></div> </pre></div>
+                    </div>
+                    <br>
                     <div style="padding-top: 15px; color: #ccc; font-style: italic; text-align: right;font-size: 12px; float:left;text-align:center">
                         Fait par <?= $req['nom'] . " " . $req['prenoms'] ?> le
                         <?= date_format(date_create($req['date_creation']), 'D d M Y à H:i'); ?> dans le thème
@@ -84,13 +118,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+
          <!-- Commentaires -->
     <?php
     if(isset($_SESSION['id'])){
     ?>
               <div
-        style="background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15); padding: 5px 10px; border-radius: 10px; margin-top: 20px">
+        style=" width: 800px;background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15); padding: 5px 10px; border-radius: 10px; margin-top: 20px">
                     <h3>Participer à l'article</h3>
                     <?php
          if(isset($er_commentaire)){
@@ -113,7 +147,7 @@
     }
  ?>       
               <div
-        style="background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15); padding: 5px 10px; border-radius: 10px; margin-top: 20px">
+        style="width: 800px; background: white; box-shadow: 0 5px 15px rgba(0, 0, 0, .15); padding: 5px 10px; border-radius: 10px; margin-top: 20px">
                     <h3>Commentaires</h3>
                     <?php
         foreach($req_commentaire as $rc){
@@ -129,9 +163,7 @@
                   </div>  
             </div>
           </div>
-        </div>
     </div>
-
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
