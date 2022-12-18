@@ -8,7 +8,7 @@
   }
   // Récupèration de l'id passer en argument dans l'URL
   $id = (int) htmlentities(trim($_GET['id']));
-  if(!is_int($id) || $id == 0 || $id = $_SESSION['id']){
+  if(empty($id)){
     header('Location: ../utilisateurs');
     exit;
   }
@@ -84,6 +84,7 @@
             <input type="submit" name="demander" value="Ajouter en ami" />
         </form>
     </div>
+
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

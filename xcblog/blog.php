@@ -32,7 +32,7 @@
 
             <div class="col-sm-0 col-md-0 col-lg-0"></div>
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <h1 style="text-align: center">Mon blog</h1>
+                <h1 style="text-align: center">Les publications</h1>
 
                 <?php if(isset($_SESSION['id']) && $_SESSION['role'] == 1){
           ?><a href="blog/creer-mon-article" class="btn btn-primary btn-lg active" role="button"
@@ -44,12 +44,18 @@
                     style="margin-top: 20px; background: white; box-shadow: 0 5px 10px rgba(0, 0, 0, .09); padding: 5px 10px; border-radius: 10px">
                     <a href="blog/<?= $r['id'] ?>"
                         style="color: #666; text-decoration: none; font-size: 28px;"><?= $r['titre'] ?></a>
-                    <div style="border-top: 2px solid #EEE; padding: 15px 0"><?= nl2br($r['text']); ?></div><a
-                        href="blog/<?= $r['id'] ?>">Voir plus</a>
+                    <div style="display: flex;">
+
+
+                        <img class="image-article-title-sm"
+                            src="<?= "/forumxcience/image/article/". $r['id'] . "/" . $r['img_title']; ?>" alt="">
+                <div style="border-top: 2px solid #EEE; padding: 15px 0"><?= nl2br($r['introduction']); ?><a href="blog/<?= $r['id'] ?>">Voir plus</a></div>
+                </div>
                     <div style="padding-top: 15px; color: #ccc; font-style: italic; text-align: right;font-size: 12px;">
                         Fait par <?= $r['nom'] . " " . $r['prenoms'] ?> le
                         <?= date_format(date_create($r['date_creation']), 'D d M Y à H:i'); ?> dans le thème
-                        <?= $r['titre_cat'] ?></div>
+                        <?= $r['titre_cat'] ?>
+                    </div>
                 </div>
                 <?php
               }

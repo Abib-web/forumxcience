@@ -27,7 +27,7 @@ use function PHPSTORM_META\type;
     //exit;
   }
   // Commentaires
-  $req_commentaire = $DB->query("SELECT TC.*, DATE_FORMAT(TC.date_creation, 'Le %d/%m/%Y à %H\h%i') as date_c, U.prenoms, U.nom
+  $req_commentaire = $DB->query("SELECT TC.*, DATE_FORMAT(TC.date_creation, 'Le %d/%m/%Y à %H\h%i') as date_c, U.prenoms, U.nom, U.avatar
     FROM topic_commentaire TC
     LEFT JOIN utilisateurs U ON U.id = TC.id_user
     WHERE id_topic = ?
@@ -137,8 +137,12 @@ $questions = get_string_between($req['contenu'], '$','```');
                     foreach($req_commentaire as $rc){ ?>  
 							    <tr>
 							      <td>
-							        <img src="<?= "/forumxcience/image/upload/". $rc['id_user'] . "/" . $_SESSION['avatar']; ?>" width="20" /><a href="/forumxcience/voir_profil/<?=$rc['id_user']?>"><?= $rc['nom'] . " " . $rc['prenoms'] ?></a>
-							      </td>
+                <?php $resultat =  $rc['avatar'] ?  $rc['avatar'] : 'default.svg' ; if($rc['avatar'] ){?>
+							        <a href="/forumxcience/voir_profil/<?=$rc['id_user']?>"><img src="<?= "/forumxcience/image/upload/". $rc['id_user'] . "/" . $resultat ; ?>" width="20" /><?= $rc['nom'] . " " . $rc['prenoms'] ?></a>
+                      <?php } else{?>
+                        <img src="<?= "/forumxcience/image/upload/". "/" . $resultat ; ?>" width="20" /><a href="/forumxcience/voir_profil/<?=$rc['id_user']?>"><?= $rc['nom'] . " " . $rc['prenoms'] ?></a>
+                        <?php } ?>
+                    </td>
 							      <td>
 							        <?= $rc['text'] ?>
 							      </td>

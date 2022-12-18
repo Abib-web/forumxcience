@@ -25,6 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
        
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
         <title>Mon profil</title>
@@ -66,7 +67,7 @@
                   <a href="modifier-profil">modifier mon profil</a>
             </div>
         </div>
-
+        <?php include('includes/footer.php');   ?>
         <script src="js/jquery-3.2.1.slim.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

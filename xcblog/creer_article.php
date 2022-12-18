@@ -171,7 +171,7 @@
                   }
               ?>
                         <div class="form-group">
-                          <h1 class="btn-info">Introduction </h1>
+                            <h1 class="btn-info">Introduction </h1>
                             <textarea class="form-control" rows="3" placeholder="Introduisez votre article"
                                 name="introduction"><?php if(isset($introduction)){ echo $introduction; }?></textarea>
                         </div>
@@ -183,7 +183,7 @@
                   }
               ?>
                         <div class="form-group">
-                          <h1 class="btn-primary">Text 1 </h1>
+                            <h1 class="btn-primary">Text 1 </h1>
                             <textarea class="form-control" rows="3" placeholder="Décrivez votre article(premier partie)"
                                 name="contenu"><?php if(isset($contenu)){ echo $contenu; }?></textarea>
                         </div>
@@ -195,8 +195,9 @@
                   }
               ?>
                         <div class="form-group">
-                        <h1 class="btn-secondary">Text 2 </h1>
-                            <textarea class="form-control" rows="3" placeholder="Décrivez votre article(deuxième partie)"
+                            <h1 class="btn-secondary">Text 2 </h1>
+                            <textarea class="form-control" rows="3"
+                                placeholder="Décrivez votre article(deuxième partie)"
                                 name="contenu1"><?php if(isset($contenu1)){ echo $contenu1; }?></textarea>
                         </div>
                         <div class="form-group">

@@ -3,7 +3,7 @@
   	 	<div class="row">
   	 		<div class="footer-col">
   	 			<h4>Compagnie</h4>
-  	 			<ul>
+  	 			<ul  style="    margin-left: -35px;">
   	 				<li><a href="#">A propos de nous</a></li>
   	 				<li><a href="#">Nos services</a></li>
   	 				<li><a href="#">politique de confidentialité</a></li>
@@ -11,7 +11,7 @@
   	 		</div>
   	 		<div class="footer-col">
   	 			<h4>obtenir de l'aide</h4>
-  	 			<ul>
+  	 			<ul style="    margin-left: -35px;">
   	 				<li><a href="#">FAQ</a></li>
   	 				<li><a href="forum">Posez une question</a></li>
   	 			</ul>

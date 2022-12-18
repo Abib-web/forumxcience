@@ -3,9 +3,22 @@
     margin: 0;
     }
 body{
-    max-width: translateY(100%);
     margin: auto;
 }
+html, 
+body {
+    height: 100%;
+}
+#container1 {
+    float:left;
+    width:100%;
+    margin-bottom: 100px;
+  }
+.container-pub{
+    float: left;
+    width: 50%;
+}
+
 .navbar{
     max-width: translateY(100%);
     border: 2px solid #a9a9
@@ -90,6 +103,7 @@ hr {
 .footer{
 	background-color: #24262b;
     padding: 70px 0;
+    clear: both;
 }
 .footer-col{
    width: 25%;
@@ -207,4 +221,80 @@ margin-bottom: 20px;
 .image-article-texte{
     width: 500px ;
     height: 400px;
+}
+.image-article-title-sm{
+    width: 150px ;
+    height: 140px;
+}
+/*aside*/
+.aside-left{
+    
+    float: left;
+    width: 17%;
+    background-color: #999;
+    margin-top: 95px;
+    margin-left: 50px;
+    padding: 20px;
+}
+.aside-left ul li{
+    padding: 10px;
+    list-style-type: none;
+}
+.aside-profile{
+    float: right;
+    background-color:gray;
+    width:20%;
+    padding:10px;
+    margin:10px;
+    margin-top: 90px;
+    margin-left: 0%;
+    margin-right: 150px;
+    justify-content: center;
+    text-align: center;
+}
+/* asite pour le forum*/
+.aside-forum-list{
+    float: right;
+    background-color:gray;
+    width:20%;
+    padding:10px;
+    margin:10px;
+    margin-right: 150px;
+}
+
+.aside-forum-list h4{
+    text-decoration: underline;
+}
+.aside-forum-list ul {
+    list-style-image: linear-gradient(to left bottom, red, blue);
+  }
+
+.aside-forum-list ul li a{
+    color: #0f0505;
+}
+/* asite pour le blog*/
+.aside-blog-list{
+    float: right;
+    background-color:gray;
+    width:20%;
+    padding:10px;
+    margin:10px;
+    margin-right: 150px;
+}
+.aside-blog-list h4{
+    text-decoration: underline;
+}
+.aside-blog-list ul {
+    list-style-image: linear-gradient(to left bottom, red, blue);
+  }
+
+.aside-blog-list ul li a{
+    color: #0f0505;
+}
+.box-publication{
+    display: inline-block;
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 0px 10px;
+    margin-top: 50px;
 }
